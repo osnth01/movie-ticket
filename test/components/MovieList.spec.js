@@ -19,6 +19,7 @@ function setup() {
     component,
     props,
     h1: component.find('h1'),
+    checkboxes: component.find('CheckBox'),
     movies: component.find('Movie')
   }
 }
@@ -34,5 +35,11 @@ describe('MovieList component', () => {
     const { component, props, movies } = setup()
 
     expect(movies.length).toEqual(props.length)
+  })
+
+  it('should render three CheckBox components', () => {
+    const { checkboxes } = setup()
+
+    expect(checkboxes.length).toEqual(3)
   })
 })
