@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import Movie from './Movie'
 import CheckBox from './CheckBox'
 
@@ -17,5 +17,9 @@ const MovieList = ({ movies }) => (
     }
   </div>
 )
+
+MovieList.propTypes = {
+  movies: PropTypes.array.isRequired
+}
 
 export default MovieList

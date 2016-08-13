@@ -1,18 +1,25 @@
 import React from 'react'
 import expect from 'expect'
 import CheckBox from '../../src/components/CheckBox'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 
 function setup() {
-  const props = {
-    feature: 'IMAX'
+  const actions = {
+    onClick: expect.createSpy()
   }
 
-  const component = shallow(<CheckBox feature={props.feature} />)
+  const feature = 'IMAX'
+
+  const component = mount(
+    <CheckBox
+      onClick={actions.onClick}
+      feature={feature} />
+    )
 
   return {
     component,
-    props,
+    feature,
+    actions,
     label: component.find('label'),
     input: component.find('input')
   }
@@ -27,8 +34,15 @@ describe('CheckBox component', () => {
   })
 
   it('should render the correct label', () => {
-    const { label, props } = setup()
+    const { label, feature } = setup()
 
-    expect(label.text()).toBe(props.feature)
+    expect(label.text()).toBe(feature)
+  })
+
+  it('should call onClick', () => {
+    const { input, actions } = setup()
+
+    input.simulate('click')
+    expect(actions.onClick).toHaveBeenCalled()
   })
 })
