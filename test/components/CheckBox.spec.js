@@ -4,18 +4,31 @@ import CheckBox from '../../src/components/CheckBox'
 import { shallow } from 'enzyme'
 
 function setup() {
-  const component = shallow(<CheckBox />)
+  const props = {
+    feature: 'IMAX'
+  }
+
+  const component = shallow(<CheckBox feature={props.feature} />)
 
   return {
-    component
+    component,
+    props,
+    label: component.find('label'),
+    input: component.find('input')
   }
 }
 
 describe('CheckBox component', () => {
   it('should render a checkbox', () => {
-    const { component } = setup()
+    const { input } = setup()
 
-    expect(component.type()).toBe('input')
-    expect(component.props().type).toBe('checkbox')
+    expect(input.type()).toBe('input')
+    expect(input.props().type).toBe('checkbox')
+  })
+
+  it('should render the correct label', () => {
+    const { label, props } = setup()
+
+    expect(label.text()).toBe(props.feature)
   })
 })

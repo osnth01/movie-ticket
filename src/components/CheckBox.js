@@ -1,7 +1,10 @@
 import React from 'react'
 
-const CheckBox = () => (
-  <input type="checkbox" />
+const CheckBox = ({ feature }) => (
+  <div>
+    <label>{feature}</label>
+    <input type="checkbox" />
+  </div>
 )
 
 export default CheckBox
