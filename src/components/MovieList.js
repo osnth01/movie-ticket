@@ -11,8 +11,8 @@ const MovieList = ({ movies }) => (
     <CheckBox />
 
     {
-      movies.map( movie => {
-        return ( <Movie movie={movie} /> )
+      movies.map( (movie, i) => {
+        return ( <Movie key={i} movie={movie} /> )
       } )
     }
   </div>
