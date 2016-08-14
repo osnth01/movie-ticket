@@ -1,5 +1,5 @@
 import expect from 'expect'
-import movies from '../../src/reducers'
+import movies from '../../src/reducers/movies'
 
 function setup() {
   const initialState = []

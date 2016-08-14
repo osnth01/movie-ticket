@@ -3,16 +3,16 @@ import { filterMovie } from '../../src/actions'
 
 describe('filterMovie action', () => {
   it('should create a FILTER_MOVIE action', () => {
-    const feature = 'IMAX'
+    const filter = 'IMAX'
     const value = true
 
     expect(
-      filterMovie(feature, value)
+      filterMovie(filter, value)
     )
     .toEqual(
       {
         type: 'FILTER_MOVIE',
-        feature,
+        filter,
         value
       }
     )

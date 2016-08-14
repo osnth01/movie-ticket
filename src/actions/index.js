@@ -1,7 +1,7 @@
-export const filterMovie = (feature, value) => {
+export const filterMovie = (filter, value) => {
   return {
     type: 'FILTER_MOVIE',
-    feature,
+    filter,
     value
   }
 }

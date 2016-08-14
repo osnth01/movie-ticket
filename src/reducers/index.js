@@ -1,14 +1,10 @@
-const initialState = []
+import { combineReducers } from 'redux'
+import movies from './movies'
+import movieFilters from './movieFilters'
 
-for (let i = 1; i <= 8; i++) {
-  initialState.push({
-    id: i,
-    title: 'Movie ' + i.toString()
-  })
-}
+const rootReducer = combineReducers({
+  movies,
+  movieFilters
+})
 
-const movies = (state = initialState, action) => {
-  return state
-}
-
-export default movies
+export default rootReducer

@@ -1,19 +1,19 @@
 import React, { PropTypes } from 'react'
 
-const CheckBox = ({ feature, onClick }) => (
+const CheckBox = ({ filter, onClick }) => (
   <div>
-    <label>{feature}</label>
+    <label>{filter}</label>
     <input
       type="checkbox"
       onClick={ e => {
-        onClick(feature, e.target.checked)
+        onClick(filter, e.target.checked)
       } } />
   </div>
 )
 
 
 CheckBox.propTypes = {
-  feature: PropTypes.string.isRequired,
+  filter: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 }
 

@@ -8,17 +8,17 @@ function setup() {
     onClick: expect.createSpy()
   }
 
-  const feature = 'IMAX'
+  const filter = 'IMAX'
 
   const component = mount(
     <CheckBox
       onClick={actions.onClick}
-      feature={feature} />
+      filter={filter} />
     )
 
   return {
     component,
-    feature,
+    filter,
     actions,
     label: component.find('label'),
     input: component.find('input')
@@ -34,9 +34,9 @@ describe('CheckBox component', () => {
   })
 
   it('should render the correct label', () => {
-    const { label, feature } = setup()
+    const { label, filter } = setup()
 
-    expect(label.text()).toBe(feature)
+    expect(label.text()).toBe(filter)
   })
 
   it('should call onClick', () => {
