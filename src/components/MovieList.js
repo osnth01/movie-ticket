@@ -24,7 +24,7 @@ const MovieList = ({ movies, filters, filterMovies }) => {
     <div>
       <h1>Playing Today</h1>
 
-      <CheckBox filter={'Accessible'} onClick={filterMovies} />
+      <CheckBox filter={'accessible'} onClick={filterMovies} />
       <CheckBox filter={'IMAX'} onClick={filterMovies} />
       <CheckBox filter={'3D'} onClick={filterMovies} />
 
