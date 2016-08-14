@@ -9,6 +9,10 @@ function setup(initialState) {
     filters: []
   }
 
+  const actions = {
+    filterMovies: expect.createSpy()
+  }
+
   for (let i = 1; i <= 16; i++) {
     let movie = {
       id: i,
@@ -39,12 +43,14 @@ function setup(initialState) {
   const component = mount(
     <MovieList
       movies={props.movies}
-      filters={props.filters} />
+      filters={props.filters}
+      filterMovies={actions.filterMovies} />
     )
 
   return {
     component,
     props,
+    actions,
     h1: component.find('h1'),
     checkboxes: component.find('CheckBox'),
     movies: component.find('Movie')
@@ -74,8 +80,8 @@ describe('MovieList component', () => {
     it('should sort the movies by id when no filter is given', () => {
       const { movies, component, props } = setup()
 
-      expect(movies.at(0).text()).toBe(props.movies[0].title)
-      expect(movies.at(15).text()).toBe(props.movies[15].title)
+      expect(movies.at(0).find('h2').text()).toBe(props.movies[0].title)
+      expect(movies.at(15).find('h2').text()).toBe(props.movies[15].title)
     })
 
     it('should sort the movies by accessible', () => {
@@ -83,8 +89,8 @@ describe('MovieList component', () => {
         filters: ['accessible']
       })
 
-      expect(movies.at(0).text()).toBe(props.movies[0].title)
-      expect(movies.at(15).text()).toBe(props.movies[15].title)
+      expect(movies.at(0).find('h2').text()).toBe(props.movies[0].title)
+      expect(movies.at(15).find('h2').text()).toBe(props.movies[15].title)
     })
 
     it('should sort the movies by IMAX', () => {
@@ -92,8 +98,8 @@ describe('MovieList component', () => {
         filters: ['IMAX']
       })
 
-      expect(movies.at(0).text()).toBe(props.movies[10].title)
-      expect(movies.at(15).text()).toBe(props.movies[13].title)
+      expect(movies.at(0).find('h2').text()).toBe(props.movies[10].title)
+      expect(movies.at(15).find('h2').text()).toBe(props.movies[13].title)
     })
 
     it('should sort the movies by 3D', () => {
@@ -101,8 +107,8 @@ describe('MovieList component', () => {
         filters: ['3D']
       })
 
-      expect(movies.at(0).text()).toBe(props.movies[12].title)
-      expect(movies.at(15).text()).toBe(props.movies[11].title)
+      expect(movies.at(0).find('h2').text()).toBe(props.movies[12].title)
+      expect(movies.at(15).find('h2').text()).toBe(props.movies[11].title)
     })
 
     it('should sort the movies by accessible and IMAX', () => {
@@ -110,8 +116,8 @@ describe('MovieList component', () => {
         filters: ['accessible', 'IMAX']
       })
 
-      expect(movies.at(0).text()).toBe(props.movies[10].title)
-      expect(movies.at(15).text()).toBe(props.movies[13].title)
+      expect(movies.at(0).find('h2').text()).toBe(props.movies[10].title)
+      expect(movies.at(15).find('h2').text()).toBe(props.movies[13].title)
     })
 
     it('should sort the movies by accessible and 3D', () => {
@@ -119,8 +125,8 @@ describe('MovieList component', () => {
         filters: ['accessible', '3D']
       })
 
-      expect(movies.at(0).text()).toBe(props.movies[12].title)
-      expect(movies.at(15).text()).toBe(props.movies[11].title)
+      expect(movies.at(0).find('h2').text()).toBe(props.movies[12].title)
+      expect(movies.at(15).find('h2').text()).toBe(props.movies[11].title)
     })
 
     it('should sort the movies by IMAX and 3D', () => {
@@ -128,8 +134,8 @@ describe('MovieList component', () => {
         filters: ['IMAX', '3D']
       })
 
-      expect(movies.at(0).text()).toBe(props.movies[14].title)
-      expect(movies.at(15).text()).toBe(props.movies[13].title)
+      expect(movies.at(0).find('h2').text()).toBe(props.movies[14].title)
+      expect(movies.at(15).find('h2').text()).toBe(props.movies[13].title)
     })
 
     it('should sort the movies by accessible, IMAX, and 3D', () => {
@@ -137,8 +143,8 @@ describe('MovieList component', () => {
         filters: ['accessible', 'IMAX', '3D']
       })
 
-      expect(movies.at(0).text()).toBe(props.movies[14].title)
-      expect(movies.at(15).text()).toBe(props.movies[13].title)
+      expect(movies.at(0).find('h2').text()).toBe(props.movies[14].title)
+      expect(movies.at(15).find('h2').text()).toBe(props.movies[13].title)
     })
   })
 })

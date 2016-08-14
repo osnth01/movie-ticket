@@ -1,4 +1,4 @@
-export const filterMovie = (filter, value) => {
+export const filterMovies = (filter, value) => {
   return {
     type: 'FILTER_MOVIE',
     filter,

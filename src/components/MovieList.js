@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import Movie from './Movie'
 import CheckBox from './CheckBox'
 
-const MovieList = ({ movies, filters }) => {
+const MovieList = ({ movies, filters, filterMovies }) => {
 
   const contains = (features, filters) => {
     return filters.filter( f => !features.includes(f) ).length === 0
@@ -24,9 +24,9 @@ const MovieList = ({ movies, filters }) => {
     <div>
       <h1>Playing Today</h1>
 
-      <CheckBox />
-      <CheckBox />
-      <CheckBox />
+      <CheckBox filter={'Accessible'} onClick={filterMovies} />
+      <CheckBox filter={'IMAX'} onClick={filterMovies} />
+      <CheckBox filter={'3D'} onClick={filterMovies} />
 
       {
         sortedMovies.map( (movie, i) => {
@@ -39,7 +39,8 @@ const MovieList = ({ movies, filters }) => {
 
 MovieList.propTypes = {
   movies: PropTypes.array.isRequired,
-  filters: PropTypes.array.isRequired
+  filters: PropTypes.array.isRequired,
+  filterMovies: PropTypes.func.isRequired
 }
 
 export default MovieList

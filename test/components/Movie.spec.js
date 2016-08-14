@@ -5,21 +5,23 @@ import { shallow } from 'enzyme'
 
 function setup() {
   const props = {
-    title: 'Movie 1'
+    title: 'Movie 1',
+    features: ['accessible']
   }
 
   const component = shallow(<Movie movie={props} />)
 
   return {
     component,
+    h2: component.find('h2'),
     props
   }
 }
 
 describe('Movie component', () => {
   it('should render the title of the movie', () => {
-    const { component, props } = setup()
+    const { h2, props } = setup()
 
-    expect(component.text()).toEqual(props.title)
+    expect(h2.text()).toEqual(props.title)
   })
 })
