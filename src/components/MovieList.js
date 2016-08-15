@@ -6,7 +6,7 @@ import CheckBox from './CheckBox'
 const MovieList = ({ movies, filters, filterMovies }) => {
 
   const contains = (features, filters) => {
-    return filters.filter( f => !features.includes(f) ).length === 0
+    return filters.every( filter => features.includes(filter) )
   }
 
   const movieFilter = (a, b) => {
