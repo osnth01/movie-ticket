@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 import Movie from './Movie'
 import CheckBox from './CheckBox'
 
@@ -33,6 +34,8 @@ const MovieList = ({ movies, filters, filterMovies }) => {
           return ( <Movie key={i} movie={movie} /> )
         } )
       }
+
+      <Link to="show-times">Select Show Time</Link>
     </div>
   )
 }

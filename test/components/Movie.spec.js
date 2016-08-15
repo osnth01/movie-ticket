@@ -22,6 +22,6 @@ describe('Movie component', () => {
   it('should render the title of the movie', () => {
     const { h2, props } = setup()
 
-    expect(h2.text()).toEqual(props.title)
+    expect(h2.text()).toBe(props.title)
   })
 })
