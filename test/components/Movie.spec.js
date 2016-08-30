@@ -13,6 +13,7 @@ function setup() {
 
   return {
     component,
+    link: component.find('Link'),
     h2: component.find('h2'),
     props
   }
@@ -23,5 +24,11 @@ describe('Movie component', () => {
     const { h2, props } = setup()
 
     expect(h2.text()).toBe(props.title)
+  })
+
+  it('should have a link', () => {
+    const { link } = setup()
+
+    expect(link.type().displayName).toBe('Link')
   })
 })
