@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 const Movie = ({ movie }) => (
   <div>
-    <Link>
+    <Link to="show-times">
       <h2>{movie.title}</h2>
       <ul>
         { 
