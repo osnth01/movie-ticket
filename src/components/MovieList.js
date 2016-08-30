@@ -34,8 +34,6 @@ const MovieList = ({ movies, filters, filterMovies }) => {
           return ( <Movie key={i} movie={movie} /> )
         } )
       }
-
-      <Link to="show-times">Select Show Time</Link>
     </div>
   )
 }

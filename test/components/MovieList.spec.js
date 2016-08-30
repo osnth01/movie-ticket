@@ -52,7 +52,6 @@ function setup(initialState) {
     props,
     actions,
     h1: component.find('h1'),
-    link: component.find('Link'),
     checkboxes: component.find('CheckBox'),
     movies: component.find('Movie')
   }
@@ -75,12 +74,6 @@ describe('MovieList component', () => {
     const { checkboxes } = setup()
 
     expect(checkboxes.length).toEqual(3)
-  })
-
-  it('should render a "Select Show Time" link', () => {
-    const { link } = setup()
-
-    expect(link.text()).toBe('Select Show Time')
   })
 
   describe('movie filters', () => {
