@@ -5,8 +5,8 @@ import MovieList from '../components/MovieList'
 
 function mapStateToProps(state) {
   return {
-    movies: state.movies.movies,
-    filters: state.movies.movieFilters
+    movies: state.movies,
+    filters: state.movieFilters
   }
 }
 
